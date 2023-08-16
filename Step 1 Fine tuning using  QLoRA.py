@@ -121,8 +121,9 @@ for name, module in trainer.model.named_modules():
     module = module.to(torch.float32)
 
 # COMMAND ----------
-
-trainer.train()
+# Initiate the training process
+with mlflow.start_run(run_name=’run_name_of_choice’):
+    trainer.train()
 
 # COMMAND ----------
 
