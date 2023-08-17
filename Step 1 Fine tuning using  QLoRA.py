@@ -34,7 +34,7 @@ dataset = Dataset.from_pandas(df).train_test_split(test_size=0.05, seed=42)
 # COMMAND ----------
 
 target_modules = ['q_proj','k_proj','v_proj','o_proj','gate_proj','down_proj','up_proj','lm_head']
-#or
+#or if only tageting attention blocks
 # target_modules = ['q_proj','v_proj']
 
 lora_config = LoraConfig(
@@ -122,7 +122,7 @@ for name, module in trainer.model.named_modules():
 
 # COMMAND ----------
 # Initiate the training process
-with mlflow.start_run(run_name='run_name_of_choic'):
+with mlflow.start_run(run_name='run_name_of_choice'):
     trainer.train()
 
 # COMMAND ----------
